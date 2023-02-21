@@ -5,10 +5,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Liu">
-    <meta name="description" content="springboot拦截器的使用一、实现HandlerInterceptor接@Component
-public class SampleInterceptor implements HandlerInterceptor {
+    <meta name="description" content="springboot拦截器的使用一、实现HandlerInterceptor接口
+preHandle() 在控制器执行之前执行
+postHandle() 在控制器执行之后执行
+afterCompletion() 在请求完毕执行
 
-    @O">
+@Comp">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -394,7 +396,7 @@ public class SampleInterceptor implements HandlerInterceptor {
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    149
+                    180
                 </div>
                 
 
@@ -419,7 +421,12 @@ public class SampleInterceptor implements HandlerInterceptor {
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="springboot拦截器的使用"><a href="#springboot拦截器的使用" class="headerlink" title="springboot拦截器的使用"></a>springboot拦截器的使用</h1><h2 id="一、实现HandlerInterceptor接"><a href="#一、实现HandlerInterceptor接" class="headerlink" title="一、实现HandlerInterceptor接"></a>一、实现<code>HandlerInterceptor</code>接</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">@Component
+                <h1 id="springboot拦截器的使用"><a href="#springboot拦截器的使用" class="headerlink" title="springboot拦截器的使用"></a>springboot拦截器的使用</h1><h2 id="一、实现HandlerInterceptor接口"><a href="#一、实现HandlerInterceptor接口" class="headerlink" title="一、实现HandlerInterceptor接口"></a>一、实现HandlerInterceptor接口</h2><ol>
+<li>preHandle() 在控制器执行之前执行</li>
+<li>postHandle() 在控制器执行之后执行</li>
+<li>afterCompletion() 在请求完毕执行</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">@Component
 public class SampleInterceptor implements HandlerInterceptor {
 
     @Override
@@ -441,10 +448,14 @@ public class SampleInterceptor implements HandlerInterceptor {
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>##二、实现WebMvcConfigurer接口</p>
-<p>注册拦截器</p>
-<p>.addPathPatterns(“/**”) //拦截全部</p>
-<p>.excludePathPatterns(“/user/login”,”/user/regist”) //不拦截的路径</p>
+<h2 id="二、实现WebMvcConfigurer接口"><a href="#二、实现WebMvcConfigurer接口" class="headerlink" title="二、实现WebMvcConfigurer接口"></a>二、实现WebMvcConfigurer接口</h2><ol>
+<li><p>注册拦截器</p>
+</li>
+<li><p>.addPathPatterns(“/**”) //拦截全部</p>
+</li>
+<li><p>.excludePathPatterns(“/user/login”,”/user/regist”) //不拦截的路径</p>
+</li>
+</ol>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">@Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
     @Autowired
