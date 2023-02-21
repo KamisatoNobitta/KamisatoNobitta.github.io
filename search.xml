@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2023/02130.html"/>
+      <url>/2023/02130.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="springboot拦截器的使用"><a href="#springboot拦截器的使用" class="headerlink" title="springboot拦截器的使用"></a>springboot拦截器的使用</h1><h2 id="一、实现HandlerInterceptor接"><a href="#一、实现HandlerInterceptor接" class="headerlink" title="一、实现HandlerInterceptor接"></a>一、实现<code>HandlerInterceptor</code>接</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">@Componentpublic class SampleInterceptor implements HandlerInterceptor {    @Override    public boolean preHandle(HttpServletRequest request, HttpServletResponse response,Object handler){        System.out.println("已进入拦截器");        return true;    }    @Override    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView){        System.out.println("控制器执行完毕");    }    @Override    public void afterCompletion(HttpServletRequest request, HttpServletResponse response,Object handler,Exception exception){        System.out.println("得到的返回结果:"+response);        System.out.println("请求完毕");    }}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>##二、实现WebMvcConfigurer接口</p><p>注册拦截器</p><p>.addPathPatterns(“/**”) //拦截全部</p><p>.excludePathPatterns(“/user/login”,”/user/regist”) //不拦截的路径</p><pre class="line-numbers language-java" data-language="java"><code class="language-java">@Configurationpublic class InterceptorConfig implements WebMvcConfigurer {    @Autowired    private SampleInterceptor sampleInterceptor;    @Override    public void addInterceptors(InterceptorRegistry registry){        registry.addInterceptor(sampleInterceptor)                .addPathPatterns("/**")                .excludePathPatterns("/user/login","/user/regist")                .excludePathPatterns("/error");        WebMvcConfigurer.super.addInterceptors(registry);    }}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>实训day_01</title>
       <link href="/2023/021356527.html"/>
       <url>/2023/021356527.html</url>
