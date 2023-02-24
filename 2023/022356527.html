@@ -468,7 +468,7 @@ javaweb<span class="token operator">:</span>
     影厅表 tb_hall
         id(int) name(varchar(20)) seats(LongText) status(int)
     电影信息表 tb_movie
-        id(int) name(varchar(50)) 实训day_01img(varchar(255)) description(LongText) director(varchar(20)) writer(varchar(20)) actor(varchar(20)) type(varchar(20)) area(varchar(20)) language(varchar(20)) showtime(Timestamp:时间戳) length(varcahr(20))
+        id(int) name(varchar(50)) 实训day-01(varchar(255)) description(LongText) director(varchar(20)) writer(varchar(20)) actor(varchar(20)) type(varchar(20)) area(varchar(20)) language(varchar(20)) showtime(Timestamp:时间戳) length(varcahr(20))
 grade(double) status(int)
     电影排片表 tb_plan
         id(int) playtime(Timestamp) price(decimal(10,2):小数类型一个10位,保留到小数点后两位)
@@ -511,7 +511,7 @@ CREATE TABLE tb_hall(
 CREATE TABLE tb_movie(
     id int PRIMARY KEY auto_increment, -- 编号
     name varchar(50) not NULL, -- 名字
-    实训day_01img varchar(255) not null, -- 存储图片的位置
+    实训day-01 varchar(255) not null, -- 存储图片的位置
     description LONGTEXT, -- 描述
     director varchar(20) not NULL,-- 导演
     writer varchar(20) not null, -- 编剧
@@ -581,15 +581,15 @@ mvc设计模式<span class="token operator">:</span>
 </code></pre>
 <h2 id="新建springboot项目"><a href="#新建springboot项目" class="headerlink" title="新建springboot项目"></a>新建springboot项目</h2><p>1、找到File —&gt; new —&gt; project</p>
 <p>2、选择项目模式</p>
-<p><img src="/%E5%AE%9E%E8%AE%ADday_01img%5C1%E3%80%81%E9%80%89%E6%8B%A9%E9%A1%B9%E7%9B%AE%E6%A8%A1%E5%BC%8F.png" alt="1、选择项目模式"></p>
+<p><img src="/2023/022356527/1%E3%80%81%E9%80%89%E6%8B%A9%E9%A1%B9%E7%9B%AE%E6%A8%A1%E5%BC%8F.png" alt="1、选择项目模式"></p>
 <p>3、配置项目</p>
-<p><img src="/%E5%AE%9E%E8%AE%ADday_01img%5C2%E3%80%81%E9%85%8D%E7%BD%AE%E9%A1%B9%E7%9B%AE.png" alt="2、配置项目"></p>
+<p><img src="/2023/022356527/2%E3%80%81%E9%85%8D%E7%BD%AE%E9%A1%B9%E7%9B%AE.png" alt="2、配置项目"></p>
 <p>4、配置项目依赖</p>
-<p><img src="/%E5%AE%9E%E8%AE%ADday_01img%5C3%E3%80%81%E9%85%8D%E7%BD%AE%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96.png" alt="3、配置项目依赖"></p>
+<p><img src="/2023/022356527/3%E3%80%81%E9%85%8D%E7%BD%AE%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96.png" alt="3、配置项目依赖"></p>
 <p>5、项目存储地址</p>
-<p><img src="/%E5%AE%9E%E8%AE%ADday_01img%5C4%E3%80%81%E9%A1%B9%E7%9B%AE%E5%AD%98%E5%82%A8%E5%9C%B0%E5%9D%80.png" alt="4、项目存储地址"></p>
+<p><img src="/2023/022356527/4%E3%80%81%E9%A1%B9%E7%9B%AE%E5%AD%98%E5%82%A8%E5%9C%B0%E5%9D%80.png" alt="4、项目存储地址"></p>
 <p>6、项目结构</p>
-<p><img src="/%E5%AE%9E%E8%AE%ADday_01img%5C5%E3%80%81%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95.png" alt="5、项目目录"></p>
+<p><img src="/2023/022356527/5%E3%80%81%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95.png" alt="5、项目目录"></p>
 <h2 id="如果出现jdk版本不对的情况应该怎么办"><a href="#如果出现jdk版本不对的情况应该怎么办" class="headerlink" title="如果出现jdk版本不对的情况应该怎么办?"></a>如果出现jdk版本不对的情况应该怎么办?</h2><p>1、找到pom.xml文件,查看是否是你当前的jdk版本</p>
 <pre class=" language-java"><code class="language-java"><span class="token operator">&lt;</span>properties<span class="token operator">></span>
         <span class="token operator">&lt;</span>java<span class="token punctuation">.</span>version<span class="token operator">></span><span class="token number">1.8</span><span class="token operator">&lt;</span><span class="token operator">/</span>java<span class="token punctuation">.</span>version<span class="token operator">></span> <span class="token operator">--</span> 就是要填写你的jdk版本的地方
@@ -601,29 +601,29 @@ mvc设计模式<span class="token operator">:</span>
 <p>​	已经共享在钉钉的群文件里面了,去找到文件夹apache-maven-3.5.4,然后将其存储在本地磁盘中</p>
 <p>2、找到配置maven的环境</p>
 <p>​	(1)在”此电脑”,右键找到”属性”,在窗口中找到”高级系统设置”</p>
-<p><img src="/%E5%AE%9E%E8%AE%ADday_01img%5C6%E3%80%81%E6%89%BE%E5%88%B0%E9%AB%98%E7%BA%A7%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE.png" alt="6、找到高级系统设置"></p>
+<p><img src="/2023/022356527/6%E3%80%81%E6%89%BE%E5%88%B0%E9%AB%98%E7%BA%A7%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE.png" alt="6、找到高级系统设置"></p>
 <p>​	(2)找到环境变量在系统变量中点击”新建”</p>
-<p><img src="/%E5%AE%9E%E8%AE%ADday_01img%5C7%E3%80%81%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png" alt="7、设置环境变量"></p>
-<p><img src="/%E5%AE%9E%E8%AE%ADday_01img%5C8%E3%80%81%E7%BC%96%E8%BE%91%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F.png" alt="8、编辑系统变量"></p>
+<p><img src="/2023/022356527/7%E3%80%81%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png" alt="7、设置环境变量"></p>
+<p><img src="/2023/022356527/8%E3%80%81%E7%BC%96%E8%BE%91%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F.png" alt="8、编辑系统变量"></p>
 <p>​	(3)在path中将我们新建的MAVEN_HOME,引入进来</p>
-<p><img src="/%E5%AE%9E%E8%AE%ADday_01img%5C9%E3%80%81path%E8%B7%AF%E5%BE%84%E4%B8%AD%E8%AE%BE%E7%BD%AE%E5%8F%98%E9%87%8F%E7%BB%91%E5%AE%9A%E5%9C%A8%E4%B8%80%E8%B5%B7.png" alt="9、path路径中设置变量绑定在一起"></p>
+<p><img src="/2023/022356527/9%E3%80%81path%E8%B7%AF%E5%BE%84%E4%B8%AD%E8%AE%BE%E7%BD%AE%E5%8F%98%E9%87%8F%E7%BB%91%E5%AE%9A%E5%9C%A8%E4%B8%80%E8%B5%B7.png" alt="9、path路径中设置变量绑定在一起"></p>
 <p>maven的原理</p>
-<p><img src="/%E5%AE%9E%E8%AE%ADday_01img%5C10%E3%80%81maven%E7%9A%84%E5%8E%9F%E7%90%86.png" alt="10、maven的原理"></p>
+<p><img src="/2023/022356527/10%E3%80%81maven%E7%9A%84%E5%8E%9F%E7%90%86.png" alt="10、maven的原理"></p>
 <p>如何修改本地仓库的位置</p>
-<p><img src="/%E5%AE%9E%E8%AE%ADday_01img%5C11%E3%80%81%E4%BF%AE%E6%94%B9maven%E7%9A%84%E9%85%8D%E7%BD%AE.png" alt="11、修改maven的配置"></p>
+<p><img src="/2023/022356527/11%E3%80%81%E4%BF%AE%E6%94%B9maven%E7%9A%84%E9%85%8D%E7%BD%AE.png" alt="11、修改maven的配置"></p>
 <p>在idea中如何配置自己的本地仓库</p>
-<p><img src="/%E5%AE%9E%E8%AE%ADday_01img%5C12%E3%80%81idea%E4%B8%AD%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%9C%AC%E6%9C%BA%E7%9A%84maven.png" alt="12、idea中如何设置本机的maven"></p>
+<p><img src="/2023/022356527/12%E3%80%81idea%E4%B8%AD%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%9C%AC%E6%9C%BA%E7%9A%84maven.png" alt="12、idea中如何设置本机的maven"></p>
 <h2 id="如果出现maven报错该怎么办"><a href="#如果出现maven报错该怎么办" class="headerlink" title="如果出现maven报错该怎么办?"></a>如果出现maven报错该怎么办?</h2><p>1、找到你maven安装在什么位置</p>
 <p>File —&gt; settings —&gt; 输入maven —&gt; 查看位置</p>
-<p><img src="/%E5%AE%9E%E8%AE%ADday_01img%5C12%E3%80%81idea%E4%B8%AD%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%9C%AC%E6%9C%BA%E7%9A%84maven.png" alt="12、idea中如何设置本机的maven"></p>
+<p><img src="/2023/022356527/12%E3%80%81idea%E4%B8%AD%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%9C%AC%E6%9C%BA%E7%9A%84maven.png" alt="12、idea中如何设置本机的maven"></p>
 <p>2、找到你磁盘中maven的位置</p>
-<p><img src="/%E5%AE%9E%E8%AE%ADday_01img%5C14%E3%80%81%E6%89%BE%E5%88%B0maven%E7%9A%84%E4%BD%8D%E7%BD%AE%E6%89%BE%E5%88%B0settings%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" alt="14、找到maven的位置找到settings的配置文件"></p>
+<p><img src="/2023/022356527/14%E3%80%81%E6%89%BE%E5%88%B0maven%E7%9A%84%E4%BD%8D%E7%BD%AE%E6%89%BE%E5%88%B0settings%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" alt="14、找到maven的位置找到settings的配置文件"></p>
 <p>3、查看settings文件中本地库的位置并且查看是否是默认地址</p>
-<p><img src="/%E5%AE%9E%E8%AE%ADday_01img%5C15%E3%80%81%E6%89%BE%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%9C%A8%E4%BB%80%E4%B9%88%E5%9C%B0%E6%96%B9.png" alt="15、找到本地仓库在什么地方"></p>
+<p><img src="/2023/022356527/15%E3%80%81%E6%89%BE%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%9C%A8%E4%BB%80%E4%B9%88%E5%9C%B0%E6%96%B9.png" alt="15、找到本地仓库在什么地方"></p>
 <p>4、找到本地仓库的位置然后将本地仓库中下载失败的包文件加删除掉</p>
-<p><img src="/%E5%AE%9E%E8%AE%ADday_01img%5C16%E3%80%81%E6%89%BE%E5%88%B0%E5%8C%85%E7%9A%84%E4%BD%8D%E7%BD%AE.png" alt="16、找到包的位置"></p>
+<p><img src="/2023/022356527/16%E3%80%81%E6%89%BE%E5%88%B0%E5%8C%85%E7%9A%84%E4%BD%8D%E7%BD%AE.png" alt="16、找到包的位置"></p>
 <p>5、刷新重新下载</p>
-<p><img src="/%E5%AE%9E%E8%AE%ADday_01img%5C17%E3%80%81%E7%82%B9%E5%87%BB%E9%87%8D%E6%96%B0%E4%B8%8B%E8%BD%BD%E5%8C%85.png" alt="17、点击重新下载包"></p>
+<p><img src="/2023/022356527/17%E3%80%81%E7%82%B9%E5%87%BB%E9%87%8D%E6%96%B0%E4%B8%8B%E8%BD%BD%E5%8C%85.png" alt="17、点击重新下载包"></p>
 <h2 id="什么是mybatis？"><a href="#什么是mybatis？" class="headerlink" title="什么是mybatis？"></a>什么是mybatis？</h2><pre class=" language-java"><code class="language-java">使用jdbc访问数据库<span class="token punctuation">,</span>除了自己写sql语句之外<span class="token punctuation">,</span>还需要操作<span class="token operator">:</span>Connection、Statement、PreparedStatement、ResultSet<span class="token punctuation">,</span>我们需要写很多的代码
 原生的jdbc代码<span class="token operator">:</span>
     <span class="token number">1</span>、加载驱动
@@ -637,7 +637,7 @@ mvc设计模式<span class="token operator">:</span>
 使用mybatis<span class="token punctuation">,</span>只需要会写sql语句<span class="token punctuation">,</span>其他的工作都交给框架来完成了<span class="token punctuation">,</span>比如<span class="token operator">:</span>Connection<span class="token punctuation">,</span>执行sql语句<span class="token punctuation">,</span>重复性的工作都可以省略了
 </code></pre>
 <h2 id="插件的安装"><a href="#插件的安装" class="headerlink" title="插件的安装"></a>插件的安装</h2><p>找到File —&gt; settings —&gt; plugins</p>
-<p><img src="/%E5%AE%9E%E8%AE%ADday_01img%5C13%E3%80%81%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85.png" alt="13、插件的安装"></p>
+<p><img src="/2023/022356527/13%E3%80%81%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85.png" alt="13、插件的安装"></p>
 <h2 id="pom-xml文件的配置"><a href="#pom-xml文件的配置" class="headerlink" title="pom.xml文件的配置"></a>pom.xml文件的配置</h2><pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
          <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
