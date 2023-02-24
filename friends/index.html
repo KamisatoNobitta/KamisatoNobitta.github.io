@@ -705,15 +705,71 @@
 
             
             <style>
+
     .valine-card {
         margin: 1.5rem auto;
     }
 
+    /*卡片式背景*/
+    #vcomments .vcards .vcard {
+        padding: 15px 20px 0 20px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        box-shadow: 0 0 4px 1px rgba(0, 0, 0, .12);
+        transition: all .3s
+    }
+
+    #vcomments .vcards .vcard:hover {
+        box-shadow: 0 0 8px 3px rgba(0, 0, 0, .12)
+    }
+
+    #vcomments .vcards .vcard .vh .vcard {
+        border: none;
+        box-shadow: none;
+    }
+
+    /*鼠标放置头像旋转*/
+    img.vimg {
+        transition: all 1s /* 旋转时间为 1s */
+    }
+
+    img.vimg:hover {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+    }
+
+
+    /*===========背景图输入判断=========*/
+    #veditor:focus {
+        background-position-y: 200px;
+        transition: all 0.2s ease-in-out 0s;
+    }
+
+    /*==========修改评论框样式===========start====*/
+    .v .vwrap {
+        padding: 0 0 20px;
+    }
+
+    /*内容框高度*/
+    .v .veditor {
+        min-height: 7rem;
+        resize: none;
+    }
+
+    /*==========修改评论框样式===========end======*/
+
+    /*头部空白栏高度*/
     .valine-card .card-content {
         padding: 20px 20px 5px 20px;
     }
 
+    /* valine 评论框增加背景图片 */
     #vcomments textarea {
+        /*背景图贴边*/
+        margin-top: -30px;
         box-sizing: border-box;
         background: url("https://cdn.jsdelivr.net/gh/drew233/cdn/20200409110727.webp") 100% 100% no-repeat;
     }
