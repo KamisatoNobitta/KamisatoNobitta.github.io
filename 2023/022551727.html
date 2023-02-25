@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Md5加密, Liu">
-    <meta name="description" content="Md5加密">
+    <meta name="keywords" content="edge主页被篡改问题, Liu">
+    <meta name="description" content="edge主页被篡改问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Md5加密 | Liu</title>
+    <title>edge主页被篡改问题 | Liu</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -336,12 +336,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Md5加密</h1>
+                    <h1 class="description center-align post-title">edge主页被篡改问题</h1>
                 </div>
             </div>
         </div>
@@ -365,16 +365,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/springboot/">
-                                <span class="chip bg-color">springboot</span>
-                            </a>
-                        
-                            <a href="/tags/java/">
-                                <span class="chip bg-color">java</span>
-                            </a>
-                        
-                            <a href="/tags/Md5/">
-                                <span class="chip bg-color">Md5</span>
+                            <a href="/tags/edge/">
+                                <span class="chip bg-color">edge</span>
                             </a>
                         
                     </div>
@@ -389,21 +381,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-02-24
+                    2023-02-25
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-24
+                    2023-02-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    111
+                    227
                 </div>
                 
 
@@ -425,41 +417,23 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Md5加密-Java"><a href="#Md5加密-Java" class="headerlink" title="Md5加密-Java"></a>Md5加密-Java</h1><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>example<span class="token punctuation">.</span>musicworld<span class="token punctuation">.</span>pojo<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>security<span class="token punctuation">.</span>MessageDigest<span class="token punctuation">;</span>
-<span class="token keyword">import</span> java<span class="token punctuation">.</span>security<span class="token punctuation">.</span>NoSuchAlgorithmException<span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Md5</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> String <span class="token function">code</span><span class="token punctuation">(</span>String str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">try</span> <span class="token punctuation">{</span>
-            MessageDigest md <span class="token operator">=</span> MessageDigest<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token string">"MD5"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            md<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> byteDigest <span class="token operator">=</span> md<span class="token punctuation">.</span><span class="token function">digest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">int</span> i<span class="token punctuation">;</span>
-            StringBuffer buf <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuffer</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> offset <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> offset <span class="token operator">&lt;</span> byteDigest<span class="token punctuation">.</span>length<span class="token punctuation">;</span> offset<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                i <span class="token operator">=</span> byteDigest<span class="token punctuation">[</span>offset<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
-                    i <span class="token operator">+=</span> <span class="token number">256</span><span class="token punctuation">;</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> <span class="token number">16</span><span class="token punctuation">)</span>
-                    buf<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"0"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                buf<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>Integer<span class="token punctuation">.</span><span class="token function">toHexString</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token comment" spellcheck="true">//32位加密</span>
-            <span class="token keyword">return</span> buf<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token comment" spellcheck="true">// 16位的加密</span>
-            <span class="token comment" spellcheck="true">//return buf.toString().substring(8, 24);</span>
-        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">NoSuchAlgorithmException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> null<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">code</span><span class="token punctuation">(</span><span class="token string">"123"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
+                <h1 id="edge主页被篡改问题"><a href="#edge主页被篡改问题" class="headerlink" title="edge主页被篡改问题"></a>edge主页被篡改问题</h1><h2 id="问题描述：edge浏览器打开时主页被篡改成了360"><a href="#问题描述：edge浏览器打开时主页被篡改成了360" class="headerlink" title="问题描述：edge浏览器打开时主页被篡改成了360"></a>问题描述：edge浏览器打开时主页被篡改成了360</h2><ol>
+<li><p>首先自己在设置里找了一下，设置后没啥用，打开还是360。</p>
+<p><img src="/2023/022551727/image-20230225124514858.png" alt="image-20230225124514858"></p>
+</li>
+<li><p>然后搜了一下网上的办法，有说快捷方式被修改的，看了一下并没有。</p>
+</li>
+</ol>
+<p><img src="/2023/022551727/image-20230225124622476.png" alt="image-20230225124622476"></p>
+<ol start="3">
+<li><p>怀疑是360的浏览器保护的功能搞的，然而已经卸载了很久360 了，不想以毒攻毒，可能很久以前edge的主页就被改了，之前没注意。然后去改注册表。</p>
+<p>键盘win+R，打开命令框，输入regedit，地址栏输入<code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Main</code>进入浏览器的注册表，修改Start Page参数。</p>
+<p><img src="/2023/022551727/image-20230225124848423.png" alt="image-20230225124848423"></p>
+</li>
+<li><p>然后打开浏览器的时候，鲁大师跳出个浏览器保护显示，点击取消保护，继续修改。完成。</p>
+</li>
+</ol>
+<p>总结：远离360管家（可能鲁大师也不是啥好东西）。</p>
 
                 
             </div>
@@ -486,7 +460,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://kamisatonobitta.github.io/2023/022450251.html">https://kamisatonobitta.github.io/2023/022450251.html</a>
+                    <a href="https://kamisatonobitta.github.io/2023/022551727.html">https://kamisatonobitta.github.io/2023/022551727.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -524,16 +498,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/springboot/">
-                                    <span class="chip bg-color">springboot</span>
-                                </a>
-                            
-                                <a href="/tags/java/">
-                                    <span class="chip bg-color">java</span>
-                                </a>
-                            
-                                <a href="/tags/Md5/">
-                                    <span class="chip bg-color">Md5</span>
+                                <a href="/tags/edge/">
+                                    <span class="chip bg-color">edge</span>
                                 </a>
                             
                         </div>
@@ -1010,9 +976,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2023/022551727.html">
                     <div class="card-image">
@@ -1030,9 +997,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1041,6 +1008,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1059,24 +1027,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/022335827.html">
+                <a href="/2023/022450251.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="springboot拦截器的使用">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Md5加密">
                         
-                        <span class="card-title">springboot拦截器的使用</span>
+                        <span class="card-title">Md5加密</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            springboot拦截器的使用
+                            Md5加密
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-24
                             </span>
                         <span class="publish-author">
                             
@@ -1093,8 +1061,12 @@
                         <span class="chip bg-color">springboot</span>
                     </a>
                     
-                    <a href="/tags/%E6%8B%A6%E6%88%AA%E5%99%A8/">
-                        <span class="chip bg-color">拦截器</span>
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/Md5/">
+                        <span class="chip bg-color">Md5</span>
                     </a>
                     
                 </div>
