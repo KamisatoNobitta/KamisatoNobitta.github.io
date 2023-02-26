@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="edge主页被篡改问题, Liu">
-    <meta name="description" content="edge主页被篡改问题">
+    <meta name="keywords" content="算法打卡2023-02-25, Liu">
+    <meta name="description" content="交换字符使字符串相同">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>edge主页被篡改问题 | Liu</title>
+    <title>算法打卡2023-02-25 | Liu</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -336,12 +336,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">edge主页被篡改问题</h1>
+                    <h1 class="description center-align post-title">算法打卡2023-02-25</h1>
                 </div>
             </div>
         </div>
@@ -365,8 +365,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/edge/">
-                                <span class="chip bg-color">edge</span>
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                                <span class="chip bg-color">力扣</span>
                             </a>
                         
                     </div>
@@ -388,14 +392,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-25
+                    2023-02-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    263
+                    470
                 </div>
                 
 
@@ -417,28 +421,37 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="edge主页被篡改问题"><a href="#edge主页被篡改问题" class="headerlink" title="edge主页被篡改问题"></a>edge主页被篡改问题</h1><h2 id="问题描述：edge浏览器打开时主页被篡改成了360"><a href="#问题描述：edge浏览器打开时主页被篡改成了360" class="headerlink" title="问题描述：edge浏览器打开时主页被篡改成了360"></a>问题描述：edge浏览器打开时主页被篡改成了360</h2><ol>
-<li><p>首先自己在设置里找了一下，设置后没啥用，打开还是360。</p>
-<p><img src="/2023/022551727/image-20230225124514858.png" alt="image-20230225124514858"></p>
-</li>
-<li><p>然后搜了一下网上的办法，有说快捷方式被修改的，看了一下并没有。</p>
-</li>
+                <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>​	有两个长度相同的字符串 s1 和 s2，且它们其中 只含有 字符 “x” 和 “y”，你需要通过「交换字符」的方式使这两个字符串相同。每次「交换字符」的时候，你都可以在两个字符串中各选一个字符进行交换。</p>
+<p>​	交换只能发生在两个不同的字符串之间，绝对不能发生在同一个字符串内部。也就是说，我们可以交换 s1[i] 和 s2[j]，但不能交换 s1[i] 和 s1[j]。</p>
+<p>​	最后，请你返回使 s1 和 s2 相同的最小交换次数，如果没有方法能够使得这两个字符串相同，则返回 -1 。</p>
+<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>例：</p>
+<p>s1:   xxyxxyx</p>
+<p>s2：xxxyxxy</p>
+<p>对比两个字符串可发现，只需要交换不同的部分即可，如s1[2,3,5,6]和s2[2,3,5,6]。我们可以把相同位置的字母一一对应，例如把s1[2]==’y’与s2[2]==’x’看做yx，我们的目的就是把xy和yx的数量都变为0。</p>
+<p>交换的方法有两种：</p>
+<p>示例 1：可以通过一次交换，使得 xy 或 yx 的值减少 2。<br>示例 2：可以通过两次交换，使得 xy 和yx 的值各减少 1。</p>
+<p>为了步数尽可能少：</p>
+<ol>
+<li>第一种交换方式更有效率，应该尽可能采用第一种交换方式。</li>
+<li>如果还未能使 xy 和yx 都为 0，再采用第二种交换方式。</li>
+<li>如果xy 和 yx 都为 1，则可以通过两次第二种交换，来使得 xy 和 yx 都为 0，否则不能使 xy 和yx 都为 0。这里也可以预先判断，如果 xy 和yx 之和为奇数，则没有方法能够使得字符串相等。</li>
 </ol>
-<p><img src="/2023/022551727/image-20230225124622476.png" alt="image-20230225124622476"></p>
-<ol start="3">
-<li><p>怀疑是360的浏览器保护的功能搞的，然而已经卸载了很久360 了，不想以毒攻毒，可能很久以前edge的主页就被改了，之前没注意。然后去改注册表。</p>
-<p>键盘win+R，打开命令框，输入regedit，地址栏输入<code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Main</code>进入浏览器的注册表，修改Start Page参数。</p>
-<p><img src="/2023/022551727/image-20230225124848423.png" alt="image-20230225124848423"></p>
-</li>
-<li><p>然后打开浏览器的时候，鲁大师跳出个浏览器保护显示，点击取消保护，继续修改。完成。</p>
-</li>
-<li><p>没有跳出提示的话，手动查看并关闭鲁大师的主页防护</p>
-<p>右上角-&gt;设置中心-&gt;主页防护</p>
-<p><img src="/2023/022551727/image-20230225131523349.png" alt="image-20230225131523349"></p>
-<p><img src="/2023/022551727/image-20230225131342584.png" alt="image-20230225131342584"></p>
-</li>
-</ol>
-<p>总结：远离360管家（可能鲁大师也不是啥好东西）。</p>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><pre class=" language-c++"><code class="language-c++">class Solution {
+public:
+    int minimumSwap(string s1, string s2) {
+        int xy=0,yx=0;
+        int n=s1.size();
+        for(int i=0;i<n;i++)
+        {
+            char a=s1[i],b=s2[i];
+            if(a=='x'&&b=='y') xy++;
+            if(a=='y'&&b=='x') yx++;
+        }
+        if((xy+yx)%2==1) return -1;
+        return xy/2+yx/2+xy%2+yx%2;
+    }
+};
+</code></pre>
 
                 
             </div>
@@ -465,7 +478,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://kamisatonobitta.github.io/2023/022551727.html">https://kamisatonobitta.github.io/2023/022551727.html</a>
+                    <a href="https://kamisatonobitta.github.io/2023/022562083.html">https://kamisatonobitta.github.io/2023/022562083.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -503,8 +516,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/edge/">
-                                    <span class="chip bg-color">edge</span>
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8A%9B%E6%89%A3/">
+                                    <span class="chip bg-color">力扣</span>
                                 </a>
                             
                         </div>
@@ -985,24 +1002,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/022562083.html">
+                <a href="/2023/022642877.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="算法打卡2023-02-25">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="二分查找">
                         
-                        <span class="card-title">算法打卡2023-02-25</span>
+                        <span class="card-title">二分查找</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            交换字符使字符串相同
+                            简单的二分查找
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-25
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-26
                         </span>
                         <span class="publish-author">
                             
@@ -1019,8 +1036,12 @@
                         <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/%E5%8A%9B%E6%89%A3/">
-                        <span class="chip bg-color">力扣</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/">
+                        <span class="chip bg-color">学习计划</span>
                     </a>
                     
                 </div>
@@ -1034,24 +1055,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/022450251.html">
+                <a href="/2023/022551727.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Md5加密">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="edge主页被篡改问题">
                         
-                        <span class="card-title">Md5加密</span>
+                        <span class="card-title">edge主页被篡改问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Md5加密
+                            edge主页被篡改问题
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-25
                             </span>
                         <span class="publish-author">
                             
@@ -1064,16 +1085,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/springboot/">
-                        <span class="chip bg-color">springboot</span>
-                    </a>
-                    
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
-                    </a>
-                    
-                    <a href="/tags/Md5/">
-                        <span class="chip bg-color">Md5</span>
+                    <a href="/tags/edge/">
+                        <span class="chip bg-color">edge</span>
                     </a>
                     
                 </div>
