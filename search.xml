@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>双指针</title>
+      <link href="/2023/022758208.html"/>
+      <url>/2023/022758208.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h1><h2 id="有序数组的平方"><a href="#有序数组的平方" class="headerlink" title="有序数组的平方"></a>有序数组的平方</h2><p>给你一个按 <strong>非递减顺序</strong> 排序的整数数组 <code>nums</code>，返回 <strong>每个数字的平方</strong> 组成的新数组，要求也按 <strong>非递减顺序</strong> 排序。</p><ul><li>提示：</li></ul><p>1 &lt;= nums.length &lt;= 104<br>-104 &lt;= nums[i] &lt;= 104<br>nums 已按 非递减顺序 排序</p><ul><li>进阶：</li></ul><p>请你设计时间复杂度为 O(n) 的算法解决本问题。</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution {public:    vector&lt;int&gt; sortedSquares(vector&lt;int&gt;&amp; nums) {        int n=nums.size();        vector&lt;int&gt; result(n);        int l=0,r=n-1,p=n-1;        while(l&lt;=r)        {            int a=nums[l],b=nums[r];            if(a*a&gt;b*b){                result[p--]=a*a;                l++;            }             else             {                result[p--]=b*b;                r--;            }        }        return result;    }};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> C++ </tag>
+            
+            <tag> 学习计划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>二分查找</title>
       <link href="/2023/022642877.html"/>
       <url>/2023/022642877.html</url>

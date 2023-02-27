@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="edge主页被篡改问题, Liu">
-    <meta name="description" content="edge主页被篡改问题">
+    <meta name="keywords" content="双指针, Liu">
+    <meta name="description" content="双指针">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>edge主页被篡改问题 | Liu</title>
+    <title>双指针 | Liu</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -336,12 +336,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">edge主页被篡改问题</h1>
+                    <h1 class="description center-align post-title">双指针</h1>
                 </div>
             </div>
         </div>
@@ -365,8 +365,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/edge/">
-                                <span class="chip bg-color">edge</span>
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
+                            </a>
+                        
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/">
+                                <span class="chip bg-color">学习计划</span>
                             </a>
                         
                     </div>
@@ -381,21 +389,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-02-25
+                    2023-02-27
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-25
+                    2023-02-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    263
+                    162
                 </div>
                 
 
@@ -420,28 +428,39 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="edge主页被篡改问题"><a href="#edge主页被篡改问题" class="headerlink" title="edge主页被篡改问题"></a>edge主页被篡改问题</h1><h2 id="问题描述：edge浏览器打开时主页被篡改成了360"><a href="#问题描述：edge浏览器打开时主页被篡改成了360" class="headerlink" title="问题描述：edge浏览器打开时主页被篡改成了360"></a>问题描述：edge浏览器打开时主页被篡改成了360</h2><ol>
-<li><p>首先自己在设置里找了一下，设置后没啥用，打开还是360。</p>
-<p><img src="/2023/022551727/image-20230225124514858.png" alt="image-20230225124514858"></p>
-</li>
-<li><p>然后搜了一下网上的办法，有说快捷方式被修改的，看了一下并没有。</p>
-</li>
-</ol>
-<p><img src="/2023/022551727/image-20230225124622476.png" alt="image-20230225124622476"></p>
-<ol start="3">
-<li><p>怀疑是360的浏览器保护的功能搞的，然而已经卸载了很久360 了，不想以毒攻毒，可能很久以前edge的主页就被改了，之前没注意。然后去改注册表。</p>
-<p>键盘win+R，打开命令框，输入regedit，地址栏输入<code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Main</code>进入浏览器的注册表，修改Start Page参数。</p>
-<p><img src="/2023/022551727/image-20230225124848423.png" alt="image-20230225124848423"></p>
-</li>
-<li><p>然后打开浏览器的时候，鲁大师跳出个浏览器保护显示，点击取消保护，继续修改。完成。</p>
-</li>
-<li><p>没有跳出提示的话，手动查看并关闭鲁大师的主页防护</p>
-<p>右上角-&gt;设置中心-&gt;主页防护</p>
-<p><img src="/2023/022551727/image-20230225131523349.png" alt="image-20230225131523349"></p>
-<p><img src="/2023/022551727/image-20230225131342584.png" alt="image-20230225131342584"></p>
-</li>
-</ol>
-<p>总结：远离360管家（可能鲁大师也不是啥好东西）。</p>
+                <h1 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h1><h2 id="有序数组的平方"><a href="#有序数组的平方" class="headerlink" title="有序数组的平方"></a>有序数组的平方</h2><p>给你一个按 <strong>非递减顺序</strong> 排序的整数数组 <code>nums</code>，返回 <strong>每个数字的平方</strong> 组成的新数组，要求也按 <strong>非递减顺序</strong> 排序。</p>
+<ul>
+<li>提示：</li>
+</ul>
+<p>1 &lt;= nums.length &lt;= 104<br>-104 &lt;= nums[i] &lt;= 104<br>nums 已按 非递减顺序 排序</p>
+<ul>
+<li>进阶：</li>
+</ul>
+<p>请你设计时间复杂度为 O(n) 的算法解决本问题。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution {
+public:
+    vector&lt;int&gt; sortedSquares(vector&lt;int&gt;&amp; nums) {
+        int n=nums.size();
+        vector&lt;int&gt; result(n);
+        int l=0,r=n-1,p=n-1;
+        while(l&lt;=r)
+        {
+            int a=nums[l],b=nums[r];
+            if(a*a&gt;b*b){
+                result[p--]=a*a;
+                l++;
+            } 
+            else 
+            {
+                result[p--]=b*b;
+                r--;
+            }
+
+        }
+        return result;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -468,7 +487,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://kamisatonobitta.github.io/2023/022551727.html">https://kamisatonobitta.github.io/2023/022551727.html</a>
+                    <a href="https://kamisatonobitta.github.io/2023/022758208.html">https://kamisatonobitta.github.io/2023/022758208.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -506,8 +525,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/edge/">
-                                    <span class="chip bg-color">edge</span>
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
+                                </a>
+                            
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/">
+                                    <span class="chip bg-color">学习计划</span>
                                 </a>
                             
                         </div>
@@ -984,29 +1011,84 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/022562083.html">
+                <a href="/2023/022758208.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="算法打卡2023-02-25">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="双指针">
                         
-                        <span class="card-title">算法打卡2023-02-25</span>
+                        <span class="card-title">双指针</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            交换字符使字符串相同
+                            双指针
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-25
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            LiuYS
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/">
+                        <span class="chip bg-color">学习计划</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/022642877.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="二分查找">
+                        
+                        <span class="card-title">二分查找</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            简单的二分查找
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1022,61 +1104,12 @@
                         <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/%E5%8A%9B%E6%89%A3/">
-                        <span class="chip bg-color">力扣</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/022450251.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Md5加密">
-                        
-                        <span class="card-title">Md5加密</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Md5加密
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-24
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            LiuYS
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/springboot/">
-                        <span class="chip bg-color">springboot</span>
-                    </a>
-                    
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
-                    </a>
-                    
-                    <a href="/tags/Md5/">
-                        <span class="chip bg-color">Md5</span>
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/">
+                        <span class="chip bg-color">学习计划</span>
                     </a>
                     
                 </div>
