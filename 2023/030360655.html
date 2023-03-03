@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="双指针4, Liu">
-    <meta name="description" content="链表的中间节点，删除链表倒数第N个结点">
+    <meta name="keywords" content="滑动窗口, Liu">
+    <meta name="description" content="无重复字符的最长子串,字符串的排列">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>双指针4 | Liu</title>
+    <title>滑动窗口 | Liu</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -336,12 +336,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">双指针4</h1>
+                    <h1 class="description center-align post-title">滑动窗口</h1>
                 </div>
             </div>
         </div>
@@ -377,10 +377,6 @@
                                 <span class="chip bg-color">力扣学习计划打卡</span>
                             </a>
                         
-                            <a href="/tags/%E9%93%BE%E8%A1%A8/">
-                                <span class="chip bg-color">链表</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -402,21 +398,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-03-02
+                    2023-03-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-02
+                    2023-03-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    578
+                    650
                 </div>
                 
 
@@ -441,113 +437,71 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="双指针4"><a href="#双指针4" class="headerlink" title="双指针4"></a>双指针4</h1><h2 id="1-链表的中间节点"><a href="#1-链表的中间节点" class="headerlink" title="1.链表的中间节点"></a>1.链表的中间节点</h2><p>给你单链表的头结点 <code>head</code> ，请你找出并返回链表的中间结点。</p>
-<p>如果有两个中间结点，则返回第二个中间结点。</p>
-<ul>
-<li><p>例1：</p>
-<pre class="line-numbers language-none"><code class="language-none">输入：head = [1,2,3,4,5]
-输出：[3,4,5]
-解释：链表只有一个中间结点，值为 3 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>例2：</p>
-<pre class="line-numbers language-none"><code class="language-none">输入：head = [1,2,3,4,5,6]
-输出：[4,5,6]
-解释：该链表有两个中间结点，值分别为 3 和 4 ，返回第二个结点。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-</ul>
-<p><strong>方法:</strong></p>
-<p>用快慢指针的方法，快指针每移动两次，慢指针移动一次，这时慢指针就是mid结点。</p>
-<p><strong>代码1：</strong></p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-class Solution {
-public:
-    ListNode* middleNode(ListNode* head) {
-        ListNode* mid=head;
-        ListNode* p=head;
-        int n=1;
-        while(p-&gt;next!=NULL){
-            n++;
-            if(n%2==0) mid=mid-&gt;next;
-            p=p-&gt;next;
-        }
-        return mid;
-    }
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="1-无重复字符的最长子串"><a href="#1-无重复字符的最长子串" class="headerlink" title="1.无重复字符的最长子串"></a>1.无重复字符的最长子串</h1><p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
+<p><strong>示例</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">输入: s = "abcabcbb"
+输出: 3 
+解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><strong>代码2(来自力扣)：</strong></p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-class Solution {
-public:
-    ListNode* middleNode(ListNode* head) {
-        ListNode* slow = head;
-        ListNode* fast = head;
-        while (fast != NULL &amp;&amp; fast-&gt;next != NULL) {
-            slow = slow-&gt;next;
-            fast = fast-&gt;next-&gt;next;
-        }
-        return slow;
-    }
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">输入: s = "bbbbb"
+输出: 1
+解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
+<pre class="line-numbers language-none"><code class="language-none">输入: s = "pwwkew"
+输出: 3
+解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。
+     请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-<h2 id="2-删除链表倒数第N个结点"><a href="#2-删除链表倒数第N个结点" class="headerlink" title="2.删除链表倒数第N个结点"></a>2.删除链表倒数第N个结点</h2><p>给你一个链表，删除链表的倒数第 <code>n</code> 个结点，并且返回链表的头结点。</p>
-<p>示例：</p>
-<pre class="line-numbers language-none"><code class="language-none">输入：head = [1,2,3,4,5], n = 2
-输出：[1,2,3,5]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">输入：head = [1], n = 1
-输出：[]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">输入：head = [1,2], n = 1
-输出：[1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p><strong>思路：</strong></p>
-<p>先创建一个空结点pre且next指向head作为左指针，右指针p指向head，先遍历n次，这样pre与p间隔为n，再遍历p到null，也就是链表的结尾，pre就是倒数第n个结点的前驱结点，只需要next指向第n个结点的next就好。要注意的是有时候head需要改变指向，所以head可以先指向pre，最后head=head-&gt;next。</p>
+<p><strong>方法：</strong></p>
+<p>使用unordered_map存储字母以及<strong>当前字母最靠近滑动窗口右端的下标</strong>，设置一个left左指针指向滑动窗口的最左端。遍历字符串，当map里没有该字母时，添加字母和下标。当map里有该字母时，判断这个字母上一次出现在什么地方，left重新指向上一次出现该字母的下一个位置，但是要注意位置不能在left左边，也就是不能在滑动窗口外。然后计算滑动窗口长度即可。</p>
 <p><strong>代码:</strong></p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */</span>
-class Solution <span class="token punctuation">{</span>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">class Solution <span class="token punctuation">{</span>
 public<span class="token operator">:</span>
-    ListNode<span class="token operator">*</span> <span class="token function">removeNthFromEnd</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        ListNode<span class="token operator">*</span> p<span class="token operator">=</span>head<span class="token punctuation">;</span>
-        head<span class="token operator">=</span>new <span class="token function">ListNode</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        ListNode<span class="token operator">*</span> pre<span class="token operator">=</span>head<span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> p<span class="token operator">=</span>p<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">!=</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            p<span class="token operator">=</span>p<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
-            pre<span class="token operator">=</span>pre<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span>string s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        unordered_map<span class="token operator">&lt;</span><span class="token keyword">char</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">&gt;</span> map<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> n<span class="token operator">=</span>s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>left<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+		<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">==</span>map<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                map<span class="token punctuation">[</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span>i<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span>
+            <span class="token punctuation">{</span>
+                left<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span>map<span class="token punctuation">[</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                map<span class="token punctuation">[</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span>i<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            result<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>result<span class="token punctuation">,</span>i<span class="token operator">-</span>left<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        pre<span class="token operator">-&gt;</span>next<span class="token operator">=</span>pre<span class="token operator">-&gt;</span>next<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
-        head<span class="token operator">=</span>head<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
-        <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="2-字符串的排列"><a href="#2-字符串的排列" class="headerlink" title="2.字符串的排列"></a>2.字符串的排列</h2><p>给你两个字符串 s1 和 s2 ，写一个函数来判断 s2 是否包含 s1 的排列。如果是，返回 true ；否则，返回 false 。换句话说，s1 的排列之一是 s2 的 子串 。</p>
+<p><strong>方法：</strong></p>
+<p>因为是自由排列s1，所以s1的字母个数和滑动窗口里的字母个数一样，因此可以比较滑动窗口与s1的字母的个数就好了。</p>
+<p>设置两个空间为26的数组，用来保存字符串字母出现的次数。首先遍历一次s1，记录s1的字母个数，保存到map1，同时可以开始滑动窗口在s2的滑动并记录字母个数。然后再进行窗口的滑动，左结点减少个数，右结点增加个数即可。</p>
+<p><strong>代码：</strong></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">class Solution <span class="token punctuation">{</span>
+public<span class="token operator">:</span>
+    bool <span class="token function">checkInclusion</span><span class="token punctuation">(</span>string s1<span class="token punctuation">,</span> string s2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n1<span class="token operator">=</span>s1<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>n2<span class="token operator">=</span>s2<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>n1<span class="token operator">&gt;</span>n2<span class="token punctuation">)</span> <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">map1</span><span class="token punctuation">(</span><span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">map2</span><span class="token punctuation">(</span><span class="token number">26</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n1<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            map1<span class="token punctuation">[</span>s1<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span><span class="token char">'a'</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+            map2<span class="token punctuation">[</span>s2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span><span class="token char">'a'</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>map1<span class="token operator">==</span>map2<span class="token punctuation">)</span> <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>n1<span class="token punctuation">,</span>left<span class="token operator">=</span>i<span class="token operator">-</span>n1<span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n2<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">,</span>left<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            map2<span class="token punctuation">[</span>s2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span><span class="token char">'a'</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+            map2<span class="token punctuation">[</span>s2<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token operator">-</span><span class="token char">'a'</span><span class="token punctuation">]</span><span class="token operator">--</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>map1<span class="token operator">==</span>map2<span class="token punctuation">)</span> <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -575,7 +529,7 @@ public<span class="token operator">:</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://kamisatonobitta.github.io/2023/030265506.html">https://kamisatonobitta.github.io/2023/030265506.html</a>
+                    <a href="https://kamisatonobitta.github.io/2023/030360655.html">https://kamisatonobitta.github.io/2023/030360655.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -623,10 +577,6 @@ public<span class="token operator">:</span>
                             
                                 <a href="/tags/%E5%8A%9B%E6%89%A3%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92%E6%89%93%E5%8D%A1/">
                                     <span class="chip bg-color">力扣学习计划打卡</span>
-                                </a>
-                            
-                                <a href="/tags/%E9%93%BE%E8%A1%A8/">
-                                    <span class="chip bg-color">链表</span>
                                 </a>
                             
                         </div>
@@ -1103,9 +1053,10 @@ public<span class="token operator">:</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2023/030360655.html">
                     <div class="card-image">
@@ -1123,9 +1074,9 @@ public<span class="token operator">:</span>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1138,6 +1089,7 @@ public<span class="token operator">:</span>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1164,24 +1116,24 @@ public<span class="token operator">:</span>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/030121567.html">
+                <a href="/2023/030265506.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="数组1">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="双指针4">
                         
-                        <span class="card-title">数组1</span>
+                        <span class="card-title">双指针4</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            存在重复元素 最大子数组和
+                            链表的中间节点，删除链表倒数第N个结点
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-02
                             </span>
                         <span class="publish-author">
                             
@@ -1210,8 +1162,8 @@ public<span class="token operator">:</span>
                         <span class="chip bg-color">力扣学习计划打卡</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">数据结构</span>
+                    <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                        <span class="chip bg-color">链表</span>
                     </a>
                     
                 </div>
