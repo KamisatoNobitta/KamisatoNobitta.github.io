@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="数组2, Liu">
-    <meta name="description" content="两数之和">
+    <meta name="keywords" content="广度、深度优先遍历, Liu">
+    <meta name="description" content="图像渲染,岛屿最大面积">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数组2 | Liu</title>
+    <title>广度、深度优先遍历 | Liu</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -336,12 +336,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数组2</h1>
+                    <h1 class="description center-align post-title">广度、深度优先遍历</h1>
                 </div>
             </div>
         </div>
@@ -377,10 +377,6 @@
                                 <span class="chip bg-color">力扣学习计划打卡</span>
                             </a>
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                <span class="chip bg-color">数据结构</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -402,21 +398,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-03-04
+                    2023-03-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-04
+                    2023-03-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    273
+                    1.4k
                 </div>
                 
 
@@ -441,50 +437,144 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="数组2"><a href="#数组2" class="headerlink" title="数组2"></a>数组2</h1><h2 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h2><p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。</p>
-<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p>
-<p>你可以按任意顺序返回答案。</p>
+                <h1 id="广度、深度优先遍历"><a href="#广度、深度优先遍历" class="headerlink" title="广度、深度优先遍历"></a>广度、深度优先遍历</h1><h2 id="1-图像渲染"><a href="#1-图像渲染" class="headerlink" title="1.图像渲染"></a>1.图像渲染</h2><p>有一幅以 m x n 的二维整数数组表示的图画 image ，其中 image[i][j] 表示该图画的像素值大小。</p>
+<p>你也被给予三个整数 sr ,  sc 和 newColor 。你应该从像素 image[sr][sc] 开始对图像进行 上色填充 。</p>
+<p>为了完成 上色工作 ，从初始像素开始，记录初始坐标的 上下左右四个方向上 像素值与初始坐标相同的相连像素点，接着再记录这四个方向上符合条件的像素点与他们对应 四个方向上 像素值与初始坐标相同的相连像素点，……，重复该过程。将所有有记录的像素点的颜色值改为 newColor 。</p>
+<p>最后返回 经过上色渲染后的图像 。</p>
 <p><strong>示例：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">输入：nums = [2,7,11,15], target = 9
-输出：[0,1]
-解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><img src="/2023/0305undefined/image-20230305144647968.png" alt="image-20230305144647968"></p>
+<pre class="line-numbers language-none"><code class="language-none">输入: image = [[1,1,1],[1,1,0],[1,0,1]]，sr = 1, sc = 1, newColor = 2
+输出: [[2,2,2],[2,2,0],[2,0,1]]
+解析: 在图像的正中间，(坐标(sr,sc)=(1,1)),在路径上所有符合条件的像素点的颜色都被更改成2。
+注意，右下角的像素没有更改为2，因为它不是在上下左右四个方向上与初始点相连的像素点。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><strong>方法1：</strong>简单粗暴。</p>
+<p><strong>方法1：</strong></p>
+<p>简单粗暴。但是内存消耗大。</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c">class Solution <span class="token punctuation">{</span>
 public<span class="token operator">:</span>
-    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">twoSum</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> length<span class="token operator">=</span>nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> r1<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>r2<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">,</span>j<span class="token punctuation">,</span>c<span class="token punctuation">;</span><span class="token comment">//i,j:image的长度;c:原色</span>
+    vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span> <span class="token function">floodFill</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span><span class="token operator">&amp;</span> image<span class="token punctuation">,</span> <span class="token keyword">int</span> sr<span class="token punctuation">,</span> <span class="token keyword">int</span> sc<span class="token punctuation">,</span> <span class="token keyword">int</span> color<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//判断是否有变化</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>color<span class="token operator">==</span>image<span class="token punctuation">[</span>sr<span class="token punctuation">]</span><span class="token punctuation">[</span>sc<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">return</span> image<span class="token punctuation">;</span>
+        <span class="token comment">//初始化数据</span>
+        c<span class="token operator">=</span>image<span class="token punctuation">[</span>sr<span class="token punctuation">]</span><span class="token punctuation">[</span>sc<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        i<span class="token operator">=</span>image<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        j<span class="token operator">=</span>image<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//开始遍历</span>
+        <span class="token keyword">return</span> <span class="token function">dfs</span><span class="token punctuation">(</span>image<span class="token punctuation">,</span>sr<span class="token punctuation">,</span>sc<span class="token punctuation">,</span>color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span> <span class="token function">dfs</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span><span class="token operator">&amp;</span> image<span class="token punctuation">,</span> <span class="token keyword">int</span> sr<span class="token punctuation">,</span> <span class="token keyword">int</span> sc<span class="token punctuation">,</span> <span class="token keyword">int</span> color<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        image<span class="token punctuation">[</span>sr<span class="token punctuation">]</span><span class="token punctuation">[</span>sc<span class="token punctuation">]</span><span class="token operator">=</span>color<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>sc<span class="token operator">-</span><span class="token number">1</span><span class="token operator">&gt;=</span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>image<span class="token punctuation">[</span>sr<span class="token punctuation">]</span><span class="token punctuation">[</span>sc<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">==</span>c<span class="token punctuation">)</span> <span class="token function">dfs</span><span class="token punctuation">(</span>image<span class="token punctuation">,</span>sr<span class="token punctuation">,</span>sc<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>sc<span class="token operator">+</span><span class="token number">1</span><span class="token operator">&lt;</span>j<span class="token operator">&amp;&amp;</span>image<span class="token punctuation">[</span>sr<span class="token punctuation">]</span><span class="token punctuation">[</span>sc<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">==</span>c<span class="token punctuation">)</span> <span class="token function">dfs</span><span class="token punctuation">(</span>image<span class="token punctuation">,</span>sr<span class="token punctuation">,</span>sc<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>sr<span class="token operator">-</span><span class="token number">1</span><span class="token operator">&gt;=</span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>image<span class="token punctuation">[</span>sr<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>sc<span class="token punctuation">]</span><span class="token operator">==</span>c<span class="token punctuation">)</span> <span class="token function">dfs</span><span class="token punctuation">(</span>image<span class="token punctuation">,</span>sr<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>sc<span class="token punctuation">,</span>color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>sr<span class="token operator">+</span><span class="token number">1</span><span class="token operator">&lt;</span>i<span class="token operator">&amp;&amp;</span>image<span class="token punctuation">[</span>sr<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>sc<span class="token punctuation">]</span><span class="token operator">==</span>c<span class="token punctuation">)</span> <span class="token function">dfs</span><span class="token punctuation">(</span>image<span class="token punctuation">,</span>sr<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>sc<span class="token punctuation">,</span>color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> image<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>length<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
-            <span class="token punctuation">{</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>j<span class="token operator">==</span>i<span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+</span>nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span>target<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token punctuation">{</span>i<span class="token punctuation">,</span>j<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<p><strong>方法2(力扣官方)：</strong></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">class Solution <span class="token punctuation">{</span>
+public<span class="token operator">:</span>
+    <span class="token keyword">const</span> <span class="token keyword">int</span> dx<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token keyword">int</span> dy<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span><span class="token operator">&amp;</span> image<span class="token punctuation">,</span> <span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">,</span> <span class="token keyword">int</span> currColor<span class="token punctuation">,</span> <span class="token keyword">int</span> color<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>image<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">==</span> currColor<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            image<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> color<span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">int</span> mx <span class="token operator">=</span> x <span class="token operator">+</span> dx<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> my <span class="token operator">=</span> y <span class="token operator">+</span> dy<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>mx <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> mx <span class="token operator">&lt;</span> image<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> my <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> my <span class="token operator">&lt;</span> image<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token function">dfs</span><span class="token punctuation">(</span>image<span class="token punctuation">,</span> mx<span class="token punctuation">,</span> my<span class="token punctuation">,</span> currColor<span class="token punctuation">,</span> color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+    vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span> <span class="token function">floodFill</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span><span class="token operator">&amp;</span> image<span class="token punctuation">,</span> <span class="token keyword">int</span> sr<span class="token punctuation">,</span> <span class="token keyword">int</span> sc<span class="token punctuation">,</span> <span class="token keyword">int</span> color<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> currColor <span class="token operator">=</span> image<span class="token punctuation">[</span>sr<span class="token punctuation">]</span><span class="token punctuation">[</span>sc<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>currColor <span class="token operator">!=</span> color<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">dfs</span><span class="token punctuation">(</span>image<span class="token punctuation">,</span> sr<span class="token punctuation">,</span> sc<span class="token punctuation">,</span> currColor<span class="token punctuation">,</span> color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> image<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h2 id="2-岛屿最大面积"><a href="#2-岛屿最大面积" class="headerlink" title="2.岛屿最大面积"></a>2.岛屿最大面积</h2><p>给你一个大小为 <code>m x n</code> 的二进制矩阵 <code>grid</code> 。</p>
+<p><strong>岛屿</strong> 是由一些相邻的 <code>1</code> (代表土地) 构成的组合，这里的「相邻」要求两个 <code>1</code> 必须在 水平或者竖直的四个方向上相邻。你可以假设 <code>grid</code> 的四个边缘都被 <code>0</code>（代表水）包围着。</p>
+<p>岛屿的面积是岛上值为 <code>1</code> 的单元格的数目。</p>
+<p>计算并返回 <code>grid</code> 中最大的岛屿面积。如果没有岛屿，则返回面积为 <code>0</code> 。</p>
+<p><strong>示例：</strong></p>
+<p><img src="/2023/0305undefined/maxarea1-grid.jpg" alt="img"></p>
+<pre class="line-numbers language-none"><code class="language-none">输入：grid = [[0,0,1,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,1,1,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,1,1,0,0,1,0,1,0,0],[0,1,0,0,1,1,0,0,1,1,1,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,1,0,0,0,0]]
+输出：6
+解释：答案不应该是 11 ，因为岛屿只能包含水平或垂直这四个方向上的 1 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><strong>方法2：</strong>使用哈希表提高效率。</p>
+<p><strong>方法1：</strong></p>
+<p>遍历grid，如果为1则进入岛屿面积判断，并且赋已判断的位置值为0，防止重复遍历。</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c">class Solution <span class="token punctuation">{</span>
 public<span class="token operator">:</span>
-    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">twoSum</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">&gt;</span> map<span class="token punctuation">;</span>
-        <span class="token keyword">int</span> n<span class="token operator">=</span>nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">auto</span> it<span class="token operator">=</span>map<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>target<span class="token operator">-</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>it<span class="token operator">!=</span>map<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token punctuation">{</span>it<span class="token operator">-&gt;</span>second<span class="token punctuation">,</span>i<span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment">//second取值，也就是保存的下标</span>
-            map<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span>i<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> maxg<span class="token punctuation">,</span>m<span class="token punctuation">,</span>n<span class="token punctuation">,</span>temp<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">maxAreaOfIsland</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span><span class="token operator">&amp;</span> grid<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        maxg<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">//初始最大面积</span>
+        m<span class="token operator">=</span>grid<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        n<span class="token operator">=</span>grid<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>m<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token comment">//仅碰到岛屿时进行判断</span>
+                <span class="token punctuation">{</span>
+                    temp<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//重置面积</span>
+                    <span class="token function">dfs</span><span class="token punctuation">(</span>grid<span class="token punctuation">,</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//计算面积</span>
+                    maxg<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>maxg<span class="token punctuation">,</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//取最大值</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> maxg<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token keyword">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span><span class="token operator">&amp;</span> grid<span class="token punctuation">,</span> <span class="token keyword">int</span> sr<span class="token punctuation">,</span> <span class="token keyword">int</span> sc<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        grid<span class="token punctuation">[</span>sr<span class="token punctuation">]</span><span class="token punctuation">[</span>sc<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//赋值为0</span>
+        temp<span class="token operator">++</span><span class="token punctuation">;</span><span class="token comment">//计算面积</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>sc<span class="token operator">-</span><span class="token number">1</span><span class="token operator">&gt;=</span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>grid<span class="token punctuation">[</span>sr<span class="token punctuation">]</span><span class="token punctuation">[</span>sc<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token function">dfs</span><span class="token punctuation">(</span>grid<span class="token punctuation">,</span>sr<span class="token punctuation">,</span>sc<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>sc<span class="token operator">+</span><span class="token number">1</span><span class="token operator">&lt;</span>n<span class="token operator">&amp;&amp;</span>grid<span class="token punctuation">[</span>sr<span class="token punctuation">]</span><span class="token punctuation">[</span>sc<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token function">dfs</span><span class="token punctuation">(</span>grid<span class="token punctuation">,</span>sr<span class="token punctuation">,</span>sc<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>sr<span class="token operator">-</span><span class="token number">1</span><span class="token operator">&gt;=</span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>grid<span class="token punctuation">[</span>sr<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>sc<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token function">dfs</span><span class="token punctuation">(</span>grid<span class="token punctuation">,</span>sr<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>sc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>sr<span class="token operator">+</span><span class="token number">1</span><span class="token operator">&lt;</span>m<span class="token operator">&amp;&amp;</span>grid<span class="token punctuation">[</span>sr<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>sc<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token function">dfs</span><span class="token punctuation">(</span>grid<span class="token punctuation">,</span>sr<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>sc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p><strong>方法2（力扣官方）：</strong></p>
+<p>[力扣答案][<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/max-area-of-island/solution/dao-yu-de-zui-da-mian-ji-by-leetcode-solution/]">https://leetcode.cn/problems/max-area-of-island/solution/dao-yu-de-zui-da-mian-ji-by-leetcode-solution/]</a></p>
+<p>我们想知道网格中每个连通形状的面积，然后取最大值。</p>
+<p>如果我们在一个土地上，以 44 个方向探索与之相连的每一个土地（以及与这些土地相连的土地），那么探索过的土地总数将是该连通形状的面积。</p>
+<p>为了确保每个土地访问不超过一次，我们每次经过一块土地时，将这块土地的值置为 00。这样我们就不会多次访问同一土地。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">class Solution <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> <span class="token function">dfs</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span><span class="token operator">&amp;</span> grid<span class="token punctuation">,</span> <span class="token keyword">int</span> cur_i<span class="token punctuation">,</span> <span class="token keyword">int</span> cur_j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>cur_i <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> cur_j <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> cur_i <span class="token operator">==</span> grid<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> cur_j <span class="token operator">==</span> grid<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> grid<span class="token punctuation">[</span>cur_i<span class="token punctuation">]</span><span class="token punctuation">[</span>cur_j<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        grid<span class="token punctuation">[</span>cur_i<span class="token punctuation">]</span><span class="token punctuation">[</span>cur_j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> di<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> dj<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">!=</span> <span class="token number">4</span><span class="token punctuation">;</span> <span class="token operator">++</span>index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> next_i <span class="token operator">=</span> cur_i <span class="token operator">+</span> di<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">,</span> next_j <span class="token operator">=</span> cur_j <span class="token operator">+</span> dj<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            ans <span class="token operator">+=</span> <span class="token function">dfs</span><span class="token punctuation">(</span>grid<span class="token punctuation">,</span> next_i<span class="token punctuation">,</span> next_j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+public<span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">maxAreaOfIsland</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span><span class="token operator">&amp;</span> grid<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">!=</span> grid<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">!=</span> grid<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                ans <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span> <span class="token function">dfs</span><span class="token punctuation">(</span>grid<span class="token punctuation">,</span> i<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -511,7 +601,7 @@ public<span class="token operator">:</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://kamisatonobitta.github.io/2023/030421887.html">https://kamisatonobitta.github.io/2023/030421887.html</a>
+                    <a href="https://kamisatonobitta.github.io/2023/030552934.html">https://kamisatonobitta.github.io/2023/030552934.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -559,10 +649,6 @@ public<span class="token operator">:</span>
                             
                                 <a href="/tags/%E5%8A%9B%E6%89%A3%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92%E6%89%93%E5%8D%A1/">
                                     <span class="chip bg-color">力扣学习计划打卡</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                    <span class="chip bg-color">数据结构</span>
                                 </a>
                             
                         </div>
@@ -1039,9 +1125,10 @@ public<span class="token operator">:</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2023/030552934.html">
                     <div class="card-image">
@@ -1059,9 +1146,9 @@ public<span class="token operator">:</span>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1074,6 +1161,7 @@ public<span class="token operator">:</span>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1100,24 +1188,24 @@ public<span class="token operator">:</span>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/030360655.html">
+                <a href="/2023/030421887.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="滑动窗口">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="数组2">
                         
-                        <span class="card-title">滑动窗口</span>
+                        <span class="card-title">数组2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            无重复字符的最长子串,字符串的排列
+                            两数之和
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-04
                             </span>
                         <span class="publish-author">
                             
@@ -1144,6 +1232,10 @@ public<span class="token operator">:</span>
                     
                     <a href="/tags/%E5%8A%9B%E6%89%A3%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92%E6%89%93%E5%8D%A1/">
                         <span class="chip bg-color">力扣学习计划打卡</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
                     </a>
                     
                 </div>
