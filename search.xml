@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>动态规划</title>
+      <link href="/2023/031055046.html"/>
+      <url>/2023/031055046.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h2 id="1-爬楼梯"><a href="#1-爬楼梯" class="headerlink" title="1.爬楼梯"></a>1.爬楼梯</h2><p>假设你正在爬楼梯。需要 <code>n</code> 阶你才能到达楼顶。</p><p>每次你可以爬 <code>1</code> 或 <code>2</code> 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p><p><strong>示例：</strong></p><pre class="line-numbers language-none"><code class="language-none">输入：n = 2输出：2解释：有两种方法可以爬到楼顶。1. 1 阶 + 1 阶2. 2 阶<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><strong>方法：</strong></p><p>使用动态规划，根据题目可得转移方程：</p><p><em>f</em>(<em>x</em>)=<em>f</em>(<em>x</em>−1)+<em>f</em>(<em>x</em>−2)</p><p><strong>代码：</strong></p><pre class="line-numbers language-c" data-language="c"><code class="language-c">class Solution <span class="token punctuation">{</span>public<span class="token operator">:</span>    <span class="token keyword">int</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">int</span> p <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> q <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> r <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>            p <span class="token operator">=</span> q<span class="token punctuation">;</span>             q <span class="token operator">=</span> r<span class="token punctuation">;</span>             r <span class="token operator">=</span> p <span class="token operator">+</span> q<span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> r<span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> C++ </tag>
+            
+            <tag> 力扣学习计划打卡 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>递归，回溯2</title>
       <link href="/2023/030964000.html"/>
       <url>/2023/030964000.html</url>
