@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>解决桌面图标无法拖动的问题</title>
+      <link href="/2023/03118429.html"/>
+      <url>/2023/03118429.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="解决桌面图标无法拖动的问题"><a href="#解决桌面图标无法拖动的问题" class="headerlink" title="解决桌面图标无法拖动的问题"></a>解决桌面图标无法拖动的问题</h1><p>网上说的大部分用组策略编辑器，试了并不适用我这个情况。</p><ol><li><p>打开文件夹<code>C:\Users\用户名\AppData\Local</code></p></li><li><p>找到并直接删除 <code>IconCache.db</code> 文件</p></li><li><p>shift+ctrl+esc打开任务管理器，找到Windows资源管理器，并重启。</p></li></ol><p>完成。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>位运算</title>
       <link href="/2023/031160366.html"/>
       <url>/2023/031160366.html</url>
