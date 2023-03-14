@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="二分查找3, Liu">
-    <meta name="description" content="寻找旋转排序数组中的最小值,寻找峰值">
+    <meta name="keywords" content="双指针5, Liu">
+    <meta name="description" content="删除链表中的重复元素II，三数之和">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>二分查找3 | Liu</title>
+    <title>双指针5 | Liu</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -336,12 +336,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">二分查找3</h1>
+                    <h1 class="description center-align post-title">双指针5</h1>
                 </div>
             </div>
         </div>
@@ -377,6 +377,10 @@
                                 <span class="chip bg-color">力扣学习计划打卡</span>
                             </a>
                         
+                            <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                                <span class="chip bg-color">链表</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -398,21 +402,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-03-13
+                    2023-03-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-13
+                    2023-03-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    858
+                    753
                 </div>
                 
 
@@ -437,138 +441,113 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="二分查找3"><a href="#二分查找3" class="headerlink" title="二分查找3"></a>二分查找3</h1><h2 id="1-寻找旋转排序数组中的最小值"><a href="#1-寻找旋转排序数组中的最小值" class="headerlink" title="1.寻找旋转排序数组中的最小值"></a>1.寻找旋转排序数组中的最小值</h2><p>已知一个长度为 n 的数组，预先按照升序排列，经由 <code>1 </code>到 <code>n </code>次 旋转 后，得到输入数组。例如，原数组 <code>nums = [0,1,2,4,5,6,7] </code>在变化后可能得到：</p>
-<ul>
-<li>若旋转 <code>4</code> 次，则可以得到 <code>[4,5,6,7,0,1,2]</code></li>
-<li>若旋转 <code>7</code> 次，则可以得到 <code>[0,1,2,4,5,6,7]</code></li>
-</ul>
-<p>注意，数组<code>[a[0], a[1], a[2], ..., a[n-1]]</code>旋转一次 的结果为数组 <code>[a[n-1], a[0], a[1], a[2], ..., a[n-2]] </code>。</p>
-<p>给你一个元素值 互不相同 的数组 <code>nums</code> ，它原来是一个升序排列的数组，并按上述情形进行了多次旋转。请你找出并返回数组中的 最小元素 。</p>
-<p>你必须设计一个时间复杂度为 <code>O(log n)</code> 的算法解决此问题。</p>
+                <h1 id="双指针5"><a href="#双指针5" class="headerlink" title="双指针5"></a>双指针5</h1><h2 id="1-删除链表中的重复元素II"><a href="#1-删除链表中的重复元素II" class="headerlink" title="1.删除链表中的重复元素II"></a>1.删除链表中的重复元素II</h2><p>给定一个已排序的链表的头 <code>head</code> ， <em>删除原始链表中所有重复数字的节点，只留下不同的数字</em> 。返回 <em>已排序的链表</em> 。</p>
 <p><strong>示例：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">输入：nums = [3,4,5,1,2]
-输出：1
-解释：原数组为 [1,2,3,4,5] ，旋转 3 次得到输入数组。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">输入：head = [1,2,3,3,4,4,5]
+输出：[1,2,5]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-none"><code class="language-none">输入：nums = [4,5,6,7,0,1,2]
-输出：0
-解释：原数组为 [0,1,2,4,5,6,7] ，旋转 4 次得到输入数组。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">输入：nums = [11,13,15,17]
-输出：11
-解释：原数组为 [11,13,15,17] ，旋转 4 次得到输入数组。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p><strong>方法：</strong>使用二分查找</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">class Solution <span class="token punctuation">{</span>
-public<span class="token operator">:</span>
-    <span class="token keyword">int</span> <span class="token function">findMin</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> n<span class="token operator">=</span>nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">1</span><span class="token operator">||</span>nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">&lt;</span>nums<span class="token punctuation">[</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">return</span> nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> l<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>r<span class="token operator">=</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> mid<span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>l<span class="token operator">&lt;=</span>r<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            mid<span class="token operator">=</span><span class="token punctuation">(</span>r<span class="token operator">-</span>l<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token operator">+</span>l<span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token operator">&lt;=</span>nums<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">return</span> nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment">//左侧有序</span>
-            <span class="token punctuation">{</span>
-                l<span class="token operator">=</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">else</span><span class="token comment">//右侧有序</span>
-            <span class="token punctuation">{</span>
-                r<span class="token operator">=</span>mid<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><strong>官答：</strong></p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">class Solution <span class="token punctuation">{</span>
-public<span class="token operator">:</span>
-    <span class="token keyword">int</span> <span class="token function">findMin</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> low <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> high <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>low <span class="token operator">&lt;</span> high<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">int</span> pivot <span class="token operator">=</span> low <span class="token operator">+</span> <span class="token punctuation">(</span>high <span class="token operator">-</span> low<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>pivot<span class="token punctuation">]</span> <span class="token operator">&lt;</span> nums<span class="token punctuation">[</span>high<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                high <span class="token operator">=</span> pivot<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                low <span class="token operator">=</span> pivot <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> nums<span class="token punctuation">[</span>low<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="2-寻找峰值"><a href="#2-寻找峰值" class="headerlink" title="2.寻找峰值"></a>2.寻找峰值</h2><p>峰值元素是指其值严格大于左右相邻值的元素。</p>
-<p>给你一个整数数组 nums，找到峰值元素并返回其索引。数组可能包含多个峰值，在这种情况下，返回 任何一个峰值 所在位置即可。</p>
-<p>你可以假设 nums[-1] = nums[n] = -∞ 。</p>
-<p>你必须实现时间复杂度为 O(log n) 的算法来解决此问题。</p>
-<p><strong>示例：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">输入：nums = [1,2,3,1]
-输出：2
-解释：3 是峰值元素，你的函数应该返回其索引 2。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">输入：nums = [1,2,1,3,5,6,4]
-输出：1 或 5 
-解释：你的函数可以返回索引 1，其峰值元素为 2；
-     或者返回索引 5， 其峰值元素为 6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">输入：head = [1,1,1,2,3]
+输出：[2,3]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><strong>方法：</strong></p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">class Solution <span class="token punctuation">{</span>
+<p>设置两个指针，pre一开始指向head的前驱结点，需要创建一个 ，p指向head，head重新指向pre。最后返回head-&gt;next。</p>
+<p>pre作为前驱结点删除重复元素，当p和p-&gt;next相同时进行消除，否则p和pre同时往前移动。</p>
+<p>消除步骤：p不断前指，直到pre-&gt;next-&gt;val和p-&gt;val不同时结束，然后pre-&gt;next指向p。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */</span>
+class Solution <span class="token punctuation">{</span>
 public<span class="token operator">:</span>
-    <span class="token keyword">int</span> <span class="token function">findPeakElement</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> n<span class="token operator">=</span>nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>j<span class="token operator">=</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>mid<span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">&gt;</span>nums<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&gt;</span>nums<span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">return</span> j<span class="token punctuation">;</span>
-        i<span class="token operator">++</span><span class="token punctuation">,</span>j<span class="token operator">--</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>j<span class="token punctuation">)</span>
+    ListNode<span class="token operator">*</span> <span class="token function">deleteDuplicates</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ListNode <span class="token operator">*</span>p<span class="token operator">=</span>head<span class="token punctuation">;</span>
+        ListNode <span class="token operator">*</span>pre<span class="token operator">=</span>new <span class="token function">ListNode</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        head<span class="token operator">=</span>pre<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">!=</span>nullptr<span class="token operator">&amp;&amp;</span>p<span class="token operator">-&gt;</span>next<span class="token operator">!=</span>nullptr<span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
-            mid<span class="token operator">=</span><span class="token punctuation">(</span>j<span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token operator">+</span>i<span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token operator">&gt;</span>nums<span class="token punctuation">[</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">&amp;&amp;</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token operator">&gt;</span>nums<span class="token punctuation">[</span>mid<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">return</span> mid<span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>mid<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">&lt;</span>nums<span class="token punctuation">[</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> i<span class="token operator">=</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
-            <span class="token keyword">else</span> j<span class="token operator">=</span>mid<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token operator">-&gt;</span>val<span class="token operator">==</span>p<span class="token operator">-&gt;</span>next<span class="token operator">-&gt;</span>val<span class="token punctuation">)</span><span class="token comment">//存在连续重复元素</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">!=</span>nullptr<span class="token operator">&amp;&amp;</span>pre<span class="token operator">-&gt;</span>next<span class="token operator">-&gt;</span>val<span class="token operator">==</span>p<span class="token operator">-&gt;</span>val<span class="token punctuation">)</span> p<span class="token operator">=</span>p<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span><span class="token comment">//排除所有连续的重复元素</span>
+                pre<span class="token operator">-&gt;</span>next<span class="token operator">=</span>p<span class="token punctuation">;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token operator">==</span>nullptr<span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span>
+            <span class="token punctuation">{</span>
+                pre<span class="token operator">=</span>p<span class="token punctuation">;</span>
+                p<span class="token operator">=</span>p<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> mid<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> head<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h2 id="2-三数之和"><a href="#2-三数之和" class="headerlink" title="2.三数之和"></a>2.三数之和</h2><p>给你一个整数数组 <code>nums</code> ，判断是否存在三元组 <code>[nums[i], nums[j], nums[k]]</code> 满足 <code>i != j</code>、<code>i != k</code> 且 <code>j != k</code>，同时还满足 <code>nums[i] + nums[j] + nums[k] == 0</code> 。请你返回所有和为 <code>0</code> 且不重复的三元组。</p>
+<p><strong>注意：</strong>答案中不可以包含重复的三元组。</p>
+<p><strong>示例：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">输入：nums = [-1,0,1,2,-1,-4]
+输出：[[-1,-1,2],[-1,0,1]]
+解释：
+nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0 。
+nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0 。
+nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
+不同的三元组是 [-1,0,1] 和 [-1,-1,2] 。
+注意，输出的顺序和三元组的顺序并不重要。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">输入：nums = [0,1,1]
+输出：[]
+解释：唯一可能的三元组和不为 0 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">输入：nums = [0,0,0]
+输出：[[0,0,0]]
+解释：唯一可能的三元组和为 0 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>方法：</strong></p>
 <p><strong>官答：</strong></p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c">class Solution <span class="token punctuation">{</span>
 public<span class="token operator">:</span>
-    <span class="token keyword">int</span> <span class="token function">findPeakElement</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span> <span class="token function">threeSum</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment">// 辅助函数，输入下标 i，返回一个二元组 (0/1, nums[i])</span>
-        <span class="token comment">// 方便处理 nums[-1] 以及 nums[n] 的边界情况</span>
-        <span class="token keyword">auto</span> get <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">&amp;</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">||</span> i <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token function">sort</span><span class="token punctuation">(</span>nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span> ans<span class="token punctuation">;</span>
+        <span class="token comment">// 枚举 a</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> first <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> first <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>first<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 需要和上一次枚举的数不相同</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>first <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>first<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>first <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">continue</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
-            <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> right <span class="token operator">=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> ans <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;=</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>left <span class="token operator">+</span> right<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">get</span><span class="token punctuation">(</span>mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token function">get</span><span class="token punctuation">(</span>mid<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">get</span><span class="token punctuation">(</span>mid<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token function">get</span><span class="token punctuation">(</span>mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                ans <span class="token operator">=</span> mid<span class="token punctuation">;</span>
-                <span class="token keyword">break</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">get</span><span class="token punctuation">(</span>mid<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token function">get</span><span class="token punctuation">(</span>mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                left <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                right <span class="token operator">=</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token comment">// c 对应的指针初始指向数组的最右端</span>
+            <span class="token keyword">int</span> third <span class="token operator">=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> target <span class="token operator">=</span> <span class="token operator">-</span>nums<span class="token punctuation">[</span>first<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token comment">// 枚举 b</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> second <span class="token operator">=</span> first <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> second <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>second<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 需要和上一次枚举的数不相同</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>second <span class="token operator">&gt;</span> first <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>second<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>second <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">continue</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token comment">// 需要保证 b 的指针在 c 的指针的左侧</span>
+                <span class="token keyword">while</span> <span class="token punctuation">(</span>second <span class="token operator">&lt;</span> third <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>second<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>third<span class="token punctuation">]</span> <span class="token operator">&gt;</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token operator">--</span>third<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token comment">// 如果指针重合，随着 b 后续的增加</span>
+                <span class="token comment">// 就不会有满足 a+b+c=0 并且 b&lt;c 的 c 了，可以退出循环</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>second <span class="token operator">==</span> third<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>second<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>third<span class="token punctuation">]</span> <span class="token operator">==</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    ans<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token punctuation">{</span>nums<span class="token punctuation">[</span>first<span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>second<span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>third<span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -596,7 +575,7 @@ public<span class="token operator">:</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://kamisatonobitta.github.io/2023/031313351.html">https://kamisatonobitta.github.io/2023/031313351.html</a>
+                    <a href="https://kamisatonobitta.github.io/2023/031416163.html">https://kamisatonobitta.github.io/2023/031416163.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -644,6 +623,10 @@ public<span class="token operator">:</span>
                             
                                 <a href="/tags/%E5%8A%9B%E6%89%A3%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92%E6%89%93%E5%8D%A1/">
                                     <span class="chip bg-color">力扣学习计划打卡</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                                    <span class="chip bg-color">链表</span>
                                 </a>
                             
                         </div>
@@ -1120,9 +1103,10 @@ public<span class="token operator">:</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2023/031416163.html">
                     <div class="card-image">
@@ -1140,9 +1124,9 @@ public<span class="token operator">:</span>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1155,6 +1139,7 @@ public<span class="token operator">:</span>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1185,24 +1170,24 @@ public<span class="token operator">:</span>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/031262694.html">
+                <a href="/2023/031313351.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="二分查找2">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="二分查找3">
                         
-                        <span class="card-title">二分查找2</span>
+                        <span class="card-title">二分查找3</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在排序数组中查找元素的第一个和最后一个位置,搜索旋转排序数组，搜索二维矩阵。
+                            寻找旋转排序数组中的最小值,寻找峰值
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-13
                             </span>
                         <span class="publish-author">
                             
